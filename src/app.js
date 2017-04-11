@@ -1,4 +1,4 @@
-export default class {
+export class App {
   configureRouter(config, router) {
     config.title = 'Contacts';
     config.map([
