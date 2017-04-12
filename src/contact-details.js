@@ -2,6 +2,7 @@ import {WebAPI} from './web-api';
 import {areEqual} from './utility';
 
 export class ContactDetail {
+  // Injects the WebAPI into the constructor.
   static inject() { return [WebAPI]; }
 
   constructor(api) {
