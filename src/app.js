@@ -9,7 +9,7 @@ export class App {
       },
       {
         route: 'contacts/:id',
-        moduleId: 'concats-details',
+        moduleId: 'contact-detail',
         name: 'contacts'
       }
     ]);
