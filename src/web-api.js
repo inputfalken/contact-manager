@@ -75,6 +75,22 @@ export class WebAPI {
     });
   }
 
+  /**
+   * Adds a contact to the contact list.
+   * Ids will be resolved automaticily.
+ */
+  addContact(contact) {
+    this.isRequesting = true;
+    return new Promise(resolve => {
+      setTimeout(() => {
+        contact.id = getId();
+        contacts.push(contact);
+        this.isRequesting = false;
+        resolve(contact);
+      }, latency);
+    });
+  }
+
   saveContact(contact) {
     this.isRequesting = true;
     return new Promise(resolve => {
