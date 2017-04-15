@@ -64,11 +64,11 @@ export class WebAPI {
     });
   }
 
-  getContactDetails(id) {
+  getContactDetails(contactId) {
     this.isRequesting = true;
     return new Promise(resolve => {
       setTimeout(() => {
-        let found = contacts.filter(x => x.id === id)[0];
+        let found = contacts.filter(x => x.id == contactId)[0];
         resolve(JSON.parse(JSON.stringify(found)));
         this.isRequesting = false;
       }, latency);
