@@ -1,13 +1,16 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {WebAPI} from './web-api';
 import {ContactUpdated, ContactViewed} from './message';
+import {Router} from 'aurelia-router';
+
 
 export class ContactList {
-  static inject = [WebAPI, EventAggregator];
+  static inject = [WebAPI, EventAggregator, Router];
 
-  constructor(api, ea) {
+  constructor(api, ea, router) {
     this.api = api;
     this.contacts = [];
+    this.router = router;
 
     ea.subscribe(ContactViewed, msg => this.select(msg.contact));
     ea.subscribe(ContactUpdated, msg => {
@@ -25,4 +28,9 @@ export class ContactList {
     this.selectedId = contact.id;
     return true;
   }
+
+  newContactView() {
+    this.router.navigate('contacts/new');
+  }
+
 }
