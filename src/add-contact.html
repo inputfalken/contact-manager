@@ -38,6 +38,6 @@
     </div>
   </div>
   <div class="button-bar">
-    <button click.delegate="save()" class="btn btn-success">Save</button>
+    <button click.delegate="save()" disabled.bind="!canSave" class="btn btn-success">Save</button>
   </div>
 </template>

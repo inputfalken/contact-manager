@@ -10,6 +10,13 @@ export class AddContact {
     this.eventAggregator = eventAggregator;
   }
 
+  get canSave() {
+    if (this.contact) {
+      return this.contact.firstName && this.contact.lastName && !this.api.isRequesting;
+    }
+    return false;
+  }
+
   save() {
     this.api.addContact(this.contact).then(contact => {
       this.eventAggregator.publish(new ContactAdded(contact));
