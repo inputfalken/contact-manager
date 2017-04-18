@@ -1,6 +1,6 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {WebAPI} from './web-api';
-import {ContactUpdated, ContactViewed} from './message';
+import {ContactUpdated, ContactViewed, ContactAdded} from './message';
 import {Router} from 'aurelia-router';
 
 
@@ -17,6 +17,9 @@ export class ContactList {
       let id = msg.contact.id;
       let found = this.contacts.find(x => x.id === id);
       Object.assign(found, msg.contact);
+    });
+    ea.subscribe(ContactAdded, msg => {
+      this.contacts.push(msg.contact);
     });
   }
 
