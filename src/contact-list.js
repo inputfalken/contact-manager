@@ -33,6 +33,7 @@ export class ContactList {
   }
 
   newContactView() {
+    this.selectedId = null;
     this.router.navigate('contacts/new');
   }
 
